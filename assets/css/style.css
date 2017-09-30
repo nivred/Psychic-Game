@@ -1,0 +1,51 @@
+body {
+	color: #C71585;
+	font-family: 'Rakkas', cursive;
+	font-size: 1.5em;	
+	text-align: center;
+}
+
+div#main-content {
+	background-image: url("../images/fortune.jpg");
+	background-repeat: no-repeat;
+	background-size: 100%; 
+	display: none;
+	height: 100em;
+}
+
+#masthead {
+	display: none;
+}
+
+h1 {
+	font-size: 6em;
+}
+
+h2 {
+	background-color: #000;
+	border-radius: 75px;
+	display: inline-block;
+	color: #98FB98;
+	font-size: 2.5em;
+	margin: 1% 0 8% 0;
+	opacity: 0.5;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+	padding: 1% 5%;
+}
+
+#scoreBoard {
+	color: #fff;
+	font-size: 2.25em;
+	line-height: 2em;
+	margin: 0 auto;
+	width: 25%;
+}
+
+#guesses {
+	border: .03em solid #DB7093;
+	border-radius: 75px;
+	color: #FAFAD2;
+	font-size: 1.5em;
+	font-weight: 900;
+	height: 1.75em;	
+}
