@@ -1,16 +1,8 @@
 body {
-	color: #C71585;
-	font-family: 'Rakkas', cursive;
-	font-size: 1.5em;	
 	text-align: center;
-}
-
-div#main-content {
 	background-image: url("../images/fortune.jpg");
 	background-repeat: no-repeat;
-	background-size: 100%; 
-	display: none;
-	height: 100em;
+	background-size: cover;
 }
 
 #masthead {
@@ -18,34 +10,46 @@ div#main-content {
 }
 
 h1 {
-	font-size: 6em;
+	color: #C71585;
+	font-family: 'Henny Penny', cursive;	
+	font-size: 42px;
+	margin-top: 20px;
+	text-shadow: 1px 1px 2px #c6d794;	
 }
 
 h2 {
-	background-color: #000;
-	border-radius: 75px;
 	display: inline-block;
-	color: #98FB98;
-	font-size: 2.5em;
-	margin: 1% 0 8% 0;
-	opacity: 0.5;
-    filter: alpha(opacity=50); /* For IE8 and earlier */
-	padding: 1% 5%;
+	color: #f8eb89;
+	font-family: Calibri, 'Trebuchet MS', 'Gill Sans', 'Gill Sans MT', sans-serif;
+	font-size: 38px;
+	margin-top: 5px;
+	text-shadow: 2px 2px 2px black;	
 }
 
 #scoreBoard {
 	color: #fff;
-	font-size: 2.25em;
-	line-height: 2em;
-	margin: 0 auto;
+	font-family: Calibri, 'Trebuchet MS', 'Gill Sans', 'Gill Sans MT', sans-serif;
+	font-size: 24px;
+	line-height: 24px;
+	margin: 40px auto;
 	width: 25%;
 }
 
 #guesses {
-	border: .03em solid #DB7093;
+	border: 1px solid #DB7093;
 	border-radius: 75px;
 	color: #FAFAD2;
-	font-size: 1.5em;
+	font-size: 32px;
 	font-weight: 900;
-	height: 1.75em;	
+	height: 40px;
+	margin-top: 10px;
+	padding-top: 10px;
+}
+
+#alerts {
+	color: #C71585;
+	font-size: 28px;
+	font-weight: 900;
+	line-height: 32px;
+	margin-top: 15px;
 }

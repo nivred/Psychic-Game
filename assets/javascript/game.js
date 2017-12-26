@@ -1,52 +1,61 @@
+// fade in effect of header
 $(document).ready(function() {
-	$('#main-content').fadeIn(1000);
-	$('#masthead').fadeIn(4000);
+	$('#masthead').fadeIn(1000);
 });
-
-var letters = "abcdefghijklmnopqrstuvwxyz";			//available letters to choose from
-var randomizer = Math.floor(Math.random()*letters.length); //pick one random letter within alphabet
-var randomLetter = letters[randomizer];				//assign that letter location to random letter variable
-var wins = 0;										//set wins to zero
-var losses = 0;										//set losses to zero
-var turns = 10;										//allow ten turns
-var lettersUsed = "";								//placeholder for used letters
-
-document.onkeydown = function(event) {				//when key pressed perform the following function
-	var userGuess = event.key.toLowerCase();		//set any key pressed to lowercase and assign value to variable
-
-	if(lettersUsed.indexOf(userGuess) > -1){		//if key pressed is duplicate
-		alert("You Already Tried The Letter: " + 	//alert user of duplicate entry
-		userGuess);
+// available letters to choose from
+var letters = "abcdefghijklmnopqrstuvwxyz";
+// generate random value
+var randomizer = Math.floor(Math.random()*letters.length);
+// assign letter using random value
+var randomLetter = letters[randomizer];
+// set initial value for variables
+var wins = 0;
+var losses = 0;
+var turns = 10;
+var lettersUsed = "";
+var message
+// perform the following function when a key is pressed
+document.onkeydown = function(event) {
+	message = "";	
+	// set any key pressed to lowercase
+	var userGuess = event.key.toLowerCase();
+	// alert user of duplicate entry
+	if(lettersUsed.indexOf(userGuess) > -1){
+		message = '"' + userGuess.toUpperCase() + '"' + " already been used";
 	}
-
-	if(letters.indexOf(userGuess) == -1) {			//if key pressed not a valid choice from alphabet
-		alert(userGuess + " Is Not A Letter");		//alert user of none valid entry
+	// alert user of none valid entry
+	if(letters.indexOf(userGuess) == -1) {
+		message = '"' + userGuess.toUpperCase() + '"' + " not a valid letter";
 	}
-	
-	if(lettersUsed.indexOf(userGuess) == -1 		//if key pressed has not all ready been used
-		&& (letters.indexOf(userGuess)) >= 0) {		//AND key pressed is a valid choice from alphabet
-		
-
-		lettersUsed += userGuess;					//add key pressed to the value of letters used
-
-		if(userGuess == randomLetter) {				//if key pressed matches random generated letter
-			alert("You Win, Go Again?");			//alert that user has won
-			wins++;									//increment wins
+	// if not already used AND valid selection add to letters used
+	if(lettersUsed.indexOf(userGuess) == -1
+		&& (letters.indexOf(userGuess)) >= 0) {
+		lettersUsed += userGuess + " ";
+		// if match made alert user and add to win count then reset game else decrement turns
+		if(userGuess == randomLetter) {
+			message = "You Guessed It!<br>The letter was " + 
+			'"' + userGuess.toUpperCase() + '".' + "<br>Select any letter<br>to try again.";			
+			wins++;
+			resetGame();
 		}else {
-			turns--;								//else decriment number of turns
+			turns--;
 		}
 	}
-
-	if(turns == 0) {								//if turns equal zero
-		alert("You Lose, Try Again?");				//alert that user has lost
-		losses++;									//increment losses
-		turns = 10;									//reset turns back to 10
-		lettersUsed = "";
+	// if turns reach zero alert user and add to losses then reset game
+	if(turns == 0) {
+		message = "Sorry, you ran out<br>of guesses. Try again.";
+		losses++;
+		resetGame();		
 	}
-
-	document.getElementById("scoreBoard").innerHTML = 	//locate element by the ID scoreBoard inside HTML 
-	"<p>Wins: " + wins + "</p><p>Losses: " +		//place the following tags, contents, and variables
-	losses + "</p><p>Guesses Left: " + turns +		//within HTML document
-	"</p><p>Your Guesses So Far:<br><p id=guesses>" 
-	+ lettersUsed + "</p>"	
-}
+	// reset Turns and Letters Used and generate new random letter
+	function resetGame(){
+		turns = 10;
+		lettersUsed = "";
+		randomizer = Math.floor(Math.random()*letters.length);
+		randomLetter = letters[randomizer];
+	}
+	// display Wins, Losses, Guesses Left, Guessed Letters, and Alerts
+	$("#scoreBoard").html("<p>Wins: " + wins + "</p><p>Losses: " + losses + 
+	"</p><p>Guesses Left: " + turns + "</p><br><p>Your Guesses So Far:</p><p id=guesses>"  + 
+	lettersUsed + "</p><h4 id=alerts>" + message + "</h4>");
+};
