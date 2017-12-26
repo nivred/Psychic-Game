@@ -1,6 +1,6 @@
 // fade in effect of header
 $(document).ready(function() {
-	$('#masthead').fadeIn(1000);
+	$('#masthead').fadeIn(2000);
 });
 // available letters to choose from
 var letters = "abcdefghijklmnopqrstuvwxyz";
@@ -16,6 +16,9 @@ var lettersUsed = "";
 var message
 // perform the following function when a key is pressed
 document.onkeydown = function(event) {
+	// hide instructions
+	$('#instructions').hide();
+	// set message value to empty
 	message = "";	
 	// set any key pressed to lowercase
 	var userGuess = event.key.toLowerCase();
@@ -33,17 +36,18 @@ document.onkeydown = function(event) {
 		lettersUsed += userGuess + " ";
 		// if match made alert user and add to win count then reset game else decrement turns
 		if(userGuess == randomLetter) {
-			message = "You Guessed It!<br>The letter was " + 
-			'"' + userGuess.toUpperCase() + '".' + "<br>Select any letter<br>to try again.";			
+			message = "You Win!<br>The letter was " + '"' + 
+			userGuess.toUpperCase() + '".' + "<br>Select any letter<br>to play again.";			
 			wins++;
 			resetGame();
-		}else {
+		} else {
 			turns--;
 		}
 	}
 	// if turns reach zero alert user and add to losses then reset game
 	if(turns == 0) {
-		message = "Sorry, you ran out<br>of guesses. Try again.";
+		message = "You Lose.<br> The letter was " + 
+		'"' + userGuess.toUpperCase() + '".' + "<br>Select any letter<br>to try again.";			
 		losses++;
 		resetGame();		
 	}
@@ -57,5 +61,5 @@ document.onkeydown = function(event) {
 	// display Wins, Losses, Guesses Left, Guessed Letters, and Alerts
 	$("#scoreBoard").html("<p>Wins: " + wins + "</p><p>Losses: " + losses + 
 	"</p><p>Guesses Left: " + turns + "</p><br><p>Your Guesses So Far:</p><p id=guesses>"  + 
-	lettersUsed + "</p><h4 id=alerts>" + message + "</h4>");
+	lettersUsed + "</p><p id=alerts>" + message + "</p>");
 };
