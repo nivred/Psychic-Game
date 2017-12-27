@@ -1,6 +1,7 @@
-// fade in effect of header
+// fade in at game start
 $(document).ready(function() {
-	$('#masthead').fadeIn(2000);
+	$('#masthead').fadeIn(1500);
+	$('#instructions').hide().delay(500).fadeIn(2000);
 });
 // available letters to choose from
 var letters = "abcdefghijklmnopqrstuvwxyz";
@@ -8,7 +9,10 @@ var letters = "abcdefghijklmnopqrstuvwxyz";
 var randomizer = Math.floor(Math.random()*letters.length);
 // assign letter using random value
 var randomLetter = letters[randomizer];
-// set initial value for variables
+// background image URL
+var imageUrl = "assets/images/fortune.jpg";
+var imageUrl2 = "assets/images/fortune2.jpg";
+// set initial scoreboard variables
 var wins = 0;
 var losses = 0;
 var turns = 10;
@@ -16,6 +20,8 @@ var lettersUsed = "";
 var message
 // perform the following function when a key is pressed
 document.onkeydown = function(event) {
+	// reset background image
+	$('body').css('background-image','url(' + imageUrl + ')');
 	// hide instructions
 	$('#instructions').hide();
 	// set message value to empty
@@ -26,21 +32,26 @@ document.onkeydown = function(event) {
 	if(lettersUsed.indexOf(userGuess) > -1){
 		message = '"' + userGuess.toUpperCase() + '"' + " already been used";
 	}
-	// alert user of none valid entry
+	// alert user of invalid entry
 	if(letters.indexOf(userGuess) == -1) {
-		message = '"' + userGuess.toUpperCase() + '"' + " not a valid letter";
+		message = '"' + userGuess.toUpperCase() + '"' + " is not a letter";
 	}
-	// if not already used AND valid selection add to letters used
+	// if not already used AND valid entry, add to letters used
 	if(lettersUsed.indexOf(userGuess) == -1
 		&& (letters.indexOf(userGuess)) >= 0) {
 		lettersUsed += userGuess + " ";
-		// if match made alert user and add to win count then reset game else decrement turns
+		// if letter guessed correctly
 		if(userGuess == randomLetter) {
+			// change background image, alert user, increment wins, and reset game
+			$('body').fadeTo(100, 0, function() {
+				$(this).css('background-image','url(' + imageUrl2 + ')');
+			}).fadeTo(1000, 1);
 			message = "You Win!<br>The letter was " + '"' + 
 			userGuess.toUpperCase() + '".' + "<br>Select any letter<br>to play again.";			
 			wins++;
 			resetGame();
 		} else {
+			// if no match, decrement turns available
 			turns--;
 		}
 	}
