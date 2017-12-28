@@ -1,8 +1,9 @@
 body {
-	text-align: center;
+	background-color: black;
 	background-image: url("../images/fortune.jpg");
 	background-repeat: no-repeat;
 	background-size: cover;
+	text-align: center;	
 }
 
 #masthead {
@@ -12,60 +13,133 @@ body {
 h1 {
 	color: #C71585;
 	font-family: 'Henny Penny', cursive;	
-	font-size: 42px;
-	margin-top: 20px;
+	font-size: 62px;
+	margin-top: 30px;
 	text-shadow: 1px 1px 2px #c6d794;	
 }
 
 h2 {
-	/* display: inline-block; */
 	color: #f8eb89;
 	font-family: 'Slackey', cursive;	
-	font-size: 32px;
-	margin-top: 5px;
+	font-size: 42px;
+	margin-top: 15px;
 	text-shadow: 2px 2px 2px rgb(128, 16, 87);	
 }
 
 #instructions {
 	color: #C71585;
-	font-size: 38px;
+	font-size: 68px;
 	font-weight: 900;
-	line-height: 42px;
-	padding-top: 150px;
+	line-height: 72px;
+	padding-top: 45%;
 }
 
 #scoreBoard {
 	color: ghostwhite;
 	font-family: 'Fontdiner Swanky', cursive;
-	font-size: 22px;
-	letter-spacing: 2px;
-	line-height: 28px;
-	margin: 2% auto 0;
+	font-size: 42px;
+	letter-spacing: 4px;
+	line-height: 46px;
+	margin: 5% auto 0;
 	text-shadow: 2px 2px 2px gray;
-	width: 375px;
+	width: 675px;
 }
 
 #guesses {
-	border: 1px solid #DB7093;
+	border: 2px solid #DB7093;
 	border-radius: 75px;
 	color: #f8eb89;
 	font-family: 'Slackey', cursive;	
-	font-size: 28px;
+	font-size: 42px;
 	font-weight: 900;
-	height: 40px;
+	height: 60px;
 	text-shadow: 2px 2px 2px #DB7093;
-	margin-top: 10px;
+	margin-top: 20px;
 	padding-top: 10px;
 }
 
 #alerts {
 	color: #C71585;
-	font-size: 28px;
+	font-size: 45px;
 	font-weight: 900;
-	line-height: 32px;
-	margin-top: 15px;
+	line-height: 52px;
+	margin-top: 35px;
 }
 
-#instructions{
-	padding-top: 35%;
+/*** MEDIA QUERY FOR DESKTOP ***/
+@media screen and (max-width: 1920px) {
+	h1 {
+		font-size: 62px;
+		margin-top: 30px;
+	}
+
+	h2 {
+		font-size: 35px;
+		margin-top: 10px;
+	}
+	
+	#instructions {
+		font-size: 48px;
+		line-height: 52px;
+		padding-top: 25%;
+	}
+	
+	#scoreBoard {
+		font-size: 38px;
+		letter-spacing: 4px;
+		line-height: 40px;
+		margin: 4% auto 0;
+		width: 580px;
+	}
+	
+	#guesses {
+		font-size: 38px;
+		height: 50px;
+		margin-top: 20px;
+	}
+	
+	#alerts {
+		font-size: 42px;
+		line-height: 46px;
+		margin-top: 35px;
+	}
+}
+
+/*** MEDIA QUERY FOR LAPTOP ***/
+@media screen and (max-width: 1280px) {
+	h1 {
+		font-size: 42px;
+		margin-top: 20px;
+	}
+	
+	h2 {
+		font-size: 32px;
+		margin-top: 5px;
+	}
+	
+	#instructions {
+		font-size: 38px;
+		line-height: 42px;
+		padding-top: 35%;
+	}
+	
+	#scoreBoard {
+		font-size: 22px;
+		letter-spacing: 2px;
+		line-height: 28px;
+		margin: 2% auto 0;
+		width: 375px;
+	}
+	
+	#guesses {
+		font-size: 28px;
+		height: 40px;
+		margin-top: 10px;
+	}
+	
+	#alerts {
+		font-size: 28px;
+		line-height: 32px;
+		margin-top: 15px;
+	}
 }
