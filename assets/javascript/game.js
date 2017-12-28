@@ -20,12 +20,13 @@ var lettersUsed = "";
 var message
 // perform the following function when a key is pressed
 document.onkeydown = function(event) {
+	message = "";
 	// reset background image
 	$('body').css('background-image','url(' + imageUrl + ')');
 	// hide instructions
 	$('#instructions').hide();
 	// set message value to empty
-	message = "";	
+	console.log(randomLetter);			
 	// set any key pressed to lowercase
 	var userGuess = event.key.toLowerCase();
 	// alert user of duplicate entry

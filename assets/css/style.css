@@ -18,7 +18,7 @@ h1 {
 }
 
 h2 {
-	display: inline-block;
+	/* display: inline-block; */
 	color: #f8eb89;
 	font-family: 'Slackey', cursive;	
 	font-size: 32px;
@@ -40,11 +40,9 @@ h2 {
 	font-size: 22px;
 	letter-spacing: 2px;
 	line-height: 28px;
-	margin: 40px auto;
-    opacity: 0.75;
-    filter: alpha(opacity=75); /* For IE8 and earlier */
+	margin: 2% auto 0;
 	text-shadow: 2px 2px 2px gray;
-	width: 30%;
+	width: 375px;
 }
 
 #guesses {
@@ -69,5 +67,5 @@ h2 {
 }
 
 #instructions{
-	/* display: none; */
+	padding-top: 35%;
 }
